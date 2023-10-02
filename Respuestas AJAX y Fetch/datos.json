@@ -1,0 +1,17 @@
+[
+    {
+        "nombre":"Fernand",
+        "apellido":"gomez",
+        "profesion":"programador"
+    },
+    {
+        "nombre":"Richard",
+        "apellido":"Gonzales",
+        "profesion":"Experto en angular"
+    },
+    {
+        "nombre":"Julián",
+        "apellido":"Peréz",
+        "profesion":"Programador en jefe"
+    }
+]
