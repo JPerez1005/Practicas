@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Color</title>
+    <style>
+        body {
+            transition: background-color 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <select id="colorSelect">
+        <option value="red">Rojo</option>
+        <option value="green">Verde</option>
+        <option value="blue">Azul</option>
+    </select>
+    <script>
+        const colorSelect = document.getElementById('colorSelect');
+        
+        // buscamos y obtenemos si es q hay algún color guardado
+        const colorSeleccionado = localStorage.getItem('colorSeleccionado');
+        
+        // Si lo hay guardado, establecemos ese color como background
+        if (colorSeleccionado) {
+            // solo llamamos el stilo al body con el background
+            document.body.style.backgroundColor = colorSeleccionado;
+            // También establece la opción seleccionada en el elemento select
+            colorSelect.value = colorSeleccionado;
+        }
+        
+        // Escucha el evento 'change' en el elemento select
+        colorSelect.addEventListener('change', function() {
+            //obtenemos el valor del select
+            const nuevoColor = colorSelect.value;
+            // cambiamos el background dependiendo del color valor
+            document.body.style.backgroundColor = nuevoColor;
+            
+            // Manda y Guarda el nuevo color seleccionado en el almacenamiento local
+            localStorage.setItem('colorSeleccionado', nuevoColor);
+        });
+    </script>
+</body>
+</html>
