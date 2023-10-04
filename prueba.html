@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="teoria">
+
+        </div>
+        <div class="sintaxis">
+
+        </div>
+        <div class="ejemplos">
+            <label>Ingresar Nombre:</label>
+            <input type="text" id="nombre">
+            <br>
+            <button id="agregar" onclick="agregar()">Agregar al final</button>
+            <button id="eliminar" onclick="eliminar()">Eliminar elemento final</button>
+            <button id="clear" onclick="removerTodo()">Eliminar Todo</button>
+            <ul id="lista"></ul>
+        </div>
+    </main>
+    <footer></footer>
+    <script>
+        const d=document;
+
+        
+        let lista2=[];
+        lista2=JSON.parse(localStorage.getItem('usuario'));
+        if(lista2){
+            let lista=d.getElementById('lista');//nos adueñamos de la lista
+            lista.innerHTML='';
+            for(let i=0; i<lista2.length; i++){
+                lista.innerHTML+='<li>'+lista2[i]+'</li>';
+            }
+        }
+
+        function agregar(){
+            let name=d.getElementById('nombre').value;//solo el valor
+            let lista=d.getElementById('lista');//nos adueñamos de la lista
+            lista2.push(name);
+            lista.innerHTML='';
+            for(let i=0; i<lista2.length; i++){
+                lista.innerHTML+='<li>'+lista2[i]+'</li>';
+            }
+            localStorage.setItem('usuario',JSON.stringify(lista2));
+        }
+
+        function eliminar(){
+            let lista=d.getElementById('lista');//nos adueñamos de la lista
+            lista2.pop();
+            lista.innerHTML='';
+            for(let i=0; i<lista2.length; i++){
+                lista.innerHTML+='<li id=item'+i+'>'+lista2[i]+'</li>'; //volvemos a mostrar
+            }
+        }
+
+        function removerTodo(){
+            let lista=d.getElementById('lista');//nos adueñamos de la lista
+            lista.innerHTML='';
+            console.log(lista2);
+            
+            lista2 = [];
+            
+            console.log(lista2);
+        }
+
+    </script>
+</body>
+</html>
