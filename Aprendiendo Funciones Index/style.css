@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Courier New', Courier, monospace;
+    scroll-behavior: smooth;
 }
 
 /*================== CSS VARIABLES ==================*/
@@ -160,7 +161,6 @@ section img{
     flex-direction: row;
     gap: 5%;
     font-size: 1.5em;
-
 }
 
 .explicacion
@@ -184,26 +184,6 @@ section img{
     background: transparent;
     color: #fff;
     outline: none;
-}
-
-.input-field label
-{
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    color: #fff;
-    font-size: 19px;
-    pointer-events: none;
-    transition: .3s;
-}
-
-input:focus ~ label{
-    top: 0;
-    left: 15px;
-    font-size: 16px;
-    padding: 0 2px;
-    background: #202834;
 }
 
 button
@@ -273,11 +253,18 @@ button:hover
 }
 
 
-
 /*================== MEDIA QUERIES (MAX-WIDTH: 1100PX) ==================*/
 @media screen and (max-width: 1100px){
     header .nav_bar{
         padding: 0 50px;
+    }
+
+    main{
+        flex-direction: column;
+    }
+
+    .union-es{
+        flex-direction: column;
     }
 }
 
@@ -331,7 +318,7 @@ button:hover
 
     .navigation .nav_items{
         position: relative;
-        background: var(--dark-color);
+        background: var(--body-bg-color);
         width: 400px;
         max-width: 400px;
         display: grid;

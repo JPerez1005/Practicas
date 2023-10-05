@@ -6,23 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="notes.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
+    <!-- Font Awesome -->
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
     <header>
         <div class="nav_bar" data-aos="fade-right"
         data-aos-duration="3000">
-            <a href="" class="logo">About</a>
+            <a href="" class="logo">Push and pop</a>
             <div class="navigation">
                 <div class="nav_items" >
                     <i class="uil uil-times nav_close_btn"></i>
-                    <a href="../index.html"><i class="uil uil-estate"></i> Home</a>
-                    <a href="models.html"><i class="uil uil-car"></i> Models</a>
-                    <a href="store.html"><i class="uil uil-store"></i> Store</a>
-                    <a href="contact.html"><i class="uil uil-envelope"></i> Contact</a>
+                    <a href="#"><i class="uil uil-estate"></i>Home</a>
+                    <a href="#metodo-push">Metodo Push</a>
+                    <a href="#metodo-pop">Metodo Pop</a>
+                    <a href="#ejemplo1">Ejemplo 1</a>
+                    <a href="#ejemplo2">Ejemplo 2</a>
                 </div>
             </div>
             <i class="uil uil-apps nav_menu_btn"></i>
@@ -37,96 +43,118 @@
         </div>
     </main>
     <section>
-        <h2>Metodo Push.</h2>
-        <p>
-            El método push() es usado para agregar un elemento al final de un arreglo.
-        </p>
-        <br><br>
-        <p>
-            Digamos que tienes un arreglo de elementos, cada elemento es una cadena que representa una tarea que
-            necesitas realizar. Tendría sentido agregar nuevos elementos al final del arreglo para poder terminar
-            primero las tareas anteriores.
-        </p>
+        <div id="metodo-push">
+            <h2>Metodo Push.</h2>
+            <p>
+                El método push() es usado para agregar un elemento al final de un arreglo.
+            </p>
+            <br><br>
+            <p>
+                Digamos que tienes un arreglo de elementos, cada elemento es una cadena que representa una tarea que
+                necesitas realizar. Tendría sentido agregar nuevos elementos al final del arreglo para poder terminar
+                primero las tareas anteriores.
+            </p>
+            <br><br><br>
+            <center>
+                <img src="ejemplo.jpeg" alt="">
+            </center>
+        </div>
         <br><br><br>
-        <center>
-            <img src="ejemplo.jpeg" alt="">
-        </center>
-        <br><br><br>
-        <h2 style="margin-top: 10%;">Sintaxis Metodo Push.</h2>
-        <div class="union-es">
-            <div class="sintax-push" style="background: white; padding: 3% ;min-width:600px"
-            data-aos="fade-right"
-            data-aos-duration="3000">
-                
-                var frutas = [];<br>
-                
-                // Utilizamos el método push para agregar elementos al array<br>
-                frutas.push("manzana");<br>
-                frutas.push("banana");<br>
-                frutas.push("uva");<br>
-                // Imprimimos el contenido del array<br>
-                console.log(frutas); // Output: ["manzana", "banana", "uva"]<br>
+        <div id="sintaxis-push">
+            <h2 style="margin-top: 10%;">Sintaxis Metodo Push.</h2>
+            <div class="union-es">
+                <div class="sintax-push" style="background: white; padding: 3% ;min-width: 50%;"
+                data-aos="fade-right"
+                data-aos-duration="3000">
+                    
+                    var frutas = [];<br>
+                    
+                    // Utilizamos el método push para agregar elementos al array<br>
+                    frutas.push("manzana");<br>
+                    frutas.push("banana");<br>
+                    frutas.push("uva");<br>
+                    // Imprimimos el contenido del array<br>
+                    console.log(frutas); // Output: ["manzana", "banana", "uva"]<br>
+                </div>
+                <div class="explicacion"
+                data-aos="fade-left"
+                data-aos-duration="3000">
+        
+                    En este ejemplo, declaramos un array vacío llamado "frutas". Luego, utilizamos el método push para agregar
+                    elementos al array. Cada vez que utilizamos push, le pasamos como argumento el elemento que queremos agregar
+                    al final del array. En este caso, agregamos las frutas "manzana", "banana" y "uva". Al imprimir el contenido
+                    del array, obtenemos el resultado ["manzana", "banana", "uva"].
+                </div>
             </div>
-            <div class="explicacion"
-            data-aos="fade-left"
-            data-aos-duration="3000">
+        </div>
+        <div id="metodo-pop">
+            <h2 style="margin-top: 12%;">Metodo Pop.</h2>
+            <p>
+                El método pop en JavaScript es una herramienta útil cuando necesitas eliminar el último elemento de un array.
+            </p>
+            <br><br>
+            <p>
+                Este método no solo elimina el último elemento, sino que también lo devuelve.
+            </p>
+            <br><br><br>
+            <center>
+                <img src="diferencias.svg" alt="">
+            </center>
+        </div>
+        <div id="sintaxis-pop">
+            <h2 style="margin-top: 10%;">Sintaxis Metodo Pop.</h2>
+            <div class="union-es">
+                <div class="sintax-pop" style="background: white; padding: 1% ;min-width:60%"
+                data-aos="fade-right"
+                data-aos-duration="3000">
+                    // Creamos un array de nombres<br>
+                    let nombres = ['Ana', 'Juan', 'María', 'Pedro'];<br>
     
-                En este ejemplo, declaramos un array vacío llamado "frutas". Luego, utilizamos el método push para agregar
-                elementos al array. Cada vez que utilizamos push, le pasamos como argumento el elemento que queremos agregar
-                al final del array. En este caso, agregamos las frutas "manzana", "banana" y "uva". Al imprimir el contenido
-                del array, obtenemos el resultado ["manzana", "banana", "uva"].
+                    // Utilizamos el método pop para eliminar el último elemento del array<br>
+                    let ultimoNombre = nombres.pop();<br>
+    
+                    // Imprimimos el último elemento eliminado y el array actualizado<br>
+                    console.log('Último nombre eliminado:', ultimoNombre);<br>
+                    console.log('Array actualizado:', nombres);<br>
+                </div>
+                <div class="explicacion"
+                data-aos="fade-left"
+                data-aos-duration="3000">
+                    En este ejemplo, utilizamos el método pop() para eliminar el último elemento del array nombres. El método pop() devuelve el elemento eliminado, que almacenamos en la variable ultimoNombre. Luego, imprimimos el elemento eliminado y el array actualizado usando console.log().
+                </div>
             </div>
         </div>
-        <h2 style="margin-top: 12%;">Metodo Pop.</h2>
-        <p>
-            El método pop en JavaScript es una herramienta útil cuando necesitas eliminar el último elemento de un array.
-        </p>
-        <br><br>
-        <p>
-            Este método no solo elimina el último elemento, sino que también lo devuelve.
-        </p>
-        <br><br><br>
-        <center>
-            <img src="diferencias.svg" alt="">
-        </center>
-        <h2 style="margin-top: 10%;">Sintaxis Metodo Pop.</h2>
-        <div class="union-es">
-            <div class="sintax-pop" style="background: white; padding: 1% ;min-width:750px"
-            data-aos="fade-right"
-            data-aos-duration="3000">
-                // Creamos un array de nombres<br>
-                let nombres = ['Ana', 'Juan', 'María', 'Pedro'];<br>
-
-                // Utilizamos el método pop para eliminar el último elemento del array<br>
-                let ultimoNombre = nombres.pop();<br>
-
-                // Imprimimos el último elemento eliminado y el array actualizado<br>
-                console.log('Último nombre eliminado:', ultimoNombre);<br>
-                console.log('Array actualizado:', nombres);<br>
-            </div>
-            <div class="explicacion"
-            data-aos="fade-left"
-            data-aos-duration="3000">
-                En este ejemplo, utilizamos el método pop() para eliminar el último elemento del array nombres. El método pop() devuelve el elemento eliminado, que almacenamos en la variable ultimoNombre. Luego, imprimimos el elemento eliminado y el array actualizado usando console.log().
-            </div>
+        <div id="ejemplo1" style="margin-top: 10%;">
+            <center>
+                <h2>Ejemplo 1</h2>
+                <div class="input-field">
+                    <input type="text" id="nombre" placeholder="Ingresar nombre:" required>
+                </div>
+                <br>
+                <button id="agregar" onclick="agregar()">Agregar</button>
+                <button id="eliminar" onclick="eliminar()">Eliminar</button>
+                <button id="clear" onclick="removerTodo()">Eliminar Todo</button>
+                <div class="box">
+                    <h3>Lista</h3>
+                    <ul id="lista"></ul>
+                </div>
+            </center>
         </div>
-        <div class="ejemplo1" style="margin-top: 10%;">
-            <h2>Ejemplo 1</h2>
-            <div class="input-field">
-                <input type="text" id="nombre" required>
-                <label>Ingresar Nombre:</label>
-            </div>
-            <br>
-            <button id="agregar" onclick="agregar()">Agregar</button>
-            <button id="eliminar" onclick="eliminar()">Eliminar</button>
-            <button id="clear" onclick="removerTodo()">Eliminar Todo</button>
-            <div class="box">
-                <h3>Lista</h3>
-                <ul id="lista"></ul>
-            </div>
-        </div>
-        <div class="ejemplo2" style="margin-top: 10%;">
+        <div id="ejemplo2" style="margin-top: 10%;">
             <h2>Ejemplo 2</h2>
+            <div class="container">
+                <button onclick="eliminarUltimaNota()">Eliminar</button>
+                <div class="notes">
+                    <div id="create"><!-- Aquí creamos las notas  -->
+                        <i class="fa-solid fa-plus"></i>
+                        <div class="createBox">
+                            <div class="innerCreateBox">
+                                <textarea placeholder="Write here..." id="userInput" maxlength="160"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <script src="main.js"></script>
