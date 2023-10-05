@@ -61,16 +61,15 @@ function eliminar(){
     for(let i=0; i<lista2.length; i++){
         lista.innerHTML+='<li id=item'+i+'>'+lista2[i]+'</li>'; //volvemos a mostrar
     }
+    localStorage.setItem('usuario',JSON.stringify(lista2));
 }
 
 function removerTodo(){
     let lista=d.getElementById('lista');//nos adueñamos de la lista
     lista.innerHTML='';
-    console.log(lista2);
-    
     lista2 = [];
-    
-    console.log(lista2);
+    localStorage.setItem('usuario',JSON.stringify(lista2));
+    // console.log(lista2);
 }
 
 // Ejemplo 2
