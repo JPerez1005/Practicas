@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD con Local Storage</title>
+</head>
+<body>
+    <h1>CRUD con Local Storage</h1>
+    <form id="crud-form">
+        <input type="text" id="task" placeholder="Nueva tarea" required>
+        <button type="submit">Agregar</button>
+    </form>
+    <ul id="task-list"></ul>
+
+    <script>
+        // Obtener elementos del DOM
+        const crudForm = document.getElementById('crud-form');
+        const taskInput = document.getElementById('task');
+        const taskList = document.getElementById('task-list');
+
+        // Obtener tareas del Local Storage
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        // Función para mostrar las tareas en la lista
+        function displayTasks() {
+            taskList.innerHTML = '';
+            tasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${task}</span>
+                    <button onclick="editTask(${index})">Editar</button>
+                    <button onclick="deleteTask(${index})">Eliminar</button>
+                `;
+                taskList.appendChild(li);
+            });
+        }
+
+        // Función para agregar una tarea
+        function addTask(event) {
+            event.preventDefault();
+            const newTask = taskInput.value;
+            if (newTask) {
+                tasks.push(newTask);
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                taskInput.value = '';
+                displayTasks();
+            }
+        }
+
+        // Función para editar una tarea
+        function editTask(index) {
+            const updatedTask = prompt('Editar tarea:', tasks[index]);
+            if (updatedTask !== null) {
+                tasks[index] = updatedTask;
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                displayTasks();
+            }
+        }
+
+        // Función para eliminar una tarea
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            displayTasks();
+        }
+
+        // Mostrar tareas al cargar la página
+        displayTasks();
+
+        // Manejar el envío del formulario
+        crudForm.addEventListener('submit', addTask);
+    </script>
+</body>
+</html>

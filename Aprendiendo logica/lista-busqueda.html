@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista con Búsqueda</title>
+</head>
+<body>
+    <h1>Lista con Búsqueda</h1>
+    <input type="text" id="search" placeholder="Buscar">
+    <ul id="task-list"></ul>
+
+    <script>
+        // Obtener elementos del DOM
+        const searchInput = document.getElementById('search');
+        const taskList = document.getElementById('task-list');
+
+        // Obtener tareas del Local Storage
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        // Función para mostrar las tareas en la lista
+        function displayTasks() {
+            taskList.innerHTML = '';
+            tasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.textContent = task;
+                taskList.appendChild(li);
+            });
+        }
+
+        // Función para filtrar tareas por búsqueda
+        function filterTasks(query) {
+            const filteredTasks = tasks.filter(task => task.includes(query));
+            taskList.innerHTML = '';
+            filteredTasks.forEach(task => {
+                const li = document.createElement('li');
+                li.textContent = task;
+                taskList.appendChild(li);
+            });
+        }
+
+        // Mostrar tareas al cargar la página
+        displayTasks();
+
+        // Manejar cambios en el campo de búsqueda
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.toLowerCase();
+            filterTasks(query);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <form id="todo-form">
+        <input type="text" id="task" placeholder="Nueva tarea" required>
+        <button type="submit">Agregar</button>
+    </form>
+    <ul id="task-list"></ul>
+
+    <script>
+        // Obtener elementos del DOM
+        const todoForm = document.getElementById('todo-form');
+        const taskInput = document.getElementById('task');
+        const taskList = document.getElementById('task-list');
+
+        // Obtener tareas del Local Storage
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+        // Función para mostrar las tareas en la lista
+        function displayTasks() {
+            taskList.innerHTML = '';
+            tasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <input type="checkbox">
+                    <span>${task}</span>
+                    <button onclick="deleteTask(${index})">Eliminar</button>
+                `;
+                taskList.appendChild(li);
+            });
+        }
+
+        // Función para agregar una tarea
+        function addTask(event) {
+            event.preventDefault();
+            const newTask = taskInput.value;
+            if (newTask) {
+                tasks.push(newTask);
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                taskInput.value = '';
+                displayTasks();
+            }
+        }
+
+        // Función para eliminar una tarea
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            displayTasks();
+        }
+
+        // Mostrar tareas al cargar la página
+        displayTasks();
+
+        // Manejar el envío del formulario
+        todoForm.addEventListener('submit', addTask);
+    </script>
+</body>
+</html>
