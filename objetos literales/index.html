@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Personas</title>
+</head>
+<body>
+    <h1>Registro de Personas</h1>
+    <form id="personaForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required><br>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" required><br>
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" required><br>
+        <button type="button" onclick="agregarPersona()">Agregar Persona</button>
+    </form>
+    <h2>Personas Registradas:</h2>
+    <ul id="listaPersonas"></ul>
+
+    <script>
+        let personas = [];
+
+        function agregarPersona() {
+            const nombre = document.getElementById('nombre').value;
+            const edad = parseInt(document.getElementById('edad').value);
+            const ciudad = document.getElementById('ciudad').value;
+
+            if (nombre && !isNaN(edad) && ciudad) {
+                const nuevaPersona = {
+                    nombre: nombre,
+                    edad: edad,
+                    ciudad: ciudad
+                };
+
+                personas.push(nuevaPersona);
+                mostrarPersonas();
+                
+                // Limpiar los campos del formulario
+                document.getElementById('nombre').value = '';
+                document.getElementById('edad').value = '';
+                document.getElementById('ciudad').value = '';
+            } else {
+                alert('Por favor, complete todos los campos.');
+            }
+        }
+
+        function mostrarPersonas() {
+            const listaPersonas = document.getElementById('listaPersonas');
+            listaPersonas.innerHTML = '';
+
+            for (let i = 0; i < personas.length; i++) {
+                const persona = personas[i];
+                const listItem = document.createElement('li');
+                listItem.textContent = `Nombre: ${persona.nombre}, Edad: ${persona.edad}, Ciudad: ${persona.ciudad}`;
+                listaPersonas.appendChild(listItem);
+            }
+        }
+    </script>
+</body>
+</html>

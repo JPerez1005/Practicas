@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libreria</title>
+    <link rel="stylesheet" href="libreria.css">
+</head>
+<body>
+    <header>
+        <button class="btnAdd-popup">Agregar</button>
+    </header>
+    <center>
+        <div class="wrapper">
+            <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+            <div class="form-box add">
+                <h2 style="color: white;">Agregar</h2>
+                <form id="librosForm">
+                    <div class="input-box">
+                        <input type="text" id="portada" required>
+                        <label>Url de la imagen</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" id="titulo" required>
+                        <label>Titulo</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" id="autor" required><br>
+                        <label>Autor</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="number" id="publicacion"><br>
+                        <label>Año Publicado</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" id="prestado" required><br>
+                        <label>Prestado a</label>
+                    </div>
+                    <div class="input-box">
+                        <label>Disponible</label>
+                        <select name="disponible" id="disponible">
+                            <option value="si">si</option>
+                            <option value="no">no</option>
+                        </select><br>
+                    </div>
+                    <button type="button" onclick="agregarLibro()" class="btn">Agregar libro</button>
+                </form>
+            </div>
+        </div>
+    </center>
+    <main style="transform: translateY(-450px);">
+        <label style="margin-left: 50px; color:white">Ordenar por:</label>
+        <select style="margin-left: 50px;" id="ordenSelect">
+            <option value="titulo">Título</option>
+            <option value="autor">Autor</option>
+            <option value="publicacion">Publicación</option>
+            <!-- Otras opciones de ordenamiento -->
+        </select><br><br><br><br><br><br>
+        <h2 style="color: white;">Libros Prestados:</h2>
+        <div id="listaLibros" class="container"></div>
+    </main>
+    <script src="libreria.js"></script>
+</body>
+</html>
