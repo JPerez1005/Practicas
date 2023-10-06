@@ -30,7 +30,7 @@ if(libreria){
         </article>
         </div>`;
     }
-}
+}//si hay libros, coloquelos
 
 function agregarLibro() {
     const titulo = d.getElementById('titulo').value;
@@ -51,9 +51,25 @@ function agregarLibro() {
             prestado: prestado
         };
 
-        libreria.push(libro);//que hace esta linea?no?
-        console.log(libreria);//ahora?
-        localStorage.setItem('libros',JSON.stringify(libreria));
+        const validaPortada = portada.substring(0,8)
+        if (validaPortada != 'https://'){
+            alert('La direccion debe ser "https://"');
+            return;
+        }
+        if (publicacion < 868 || publicacion > 2023){
+            alert("Ingrese un año valido");
+        }
+        if (portada.includes('png') == true || portada.includes('jpg') == true || portada.includes('jpeg') == true ){
+            libreria.push(libro);//que hace esta linea?no?
+            console.log(libreria);//ahora?
+            localStorage.setItem('libros',JSON.stringify(libreria));  
+        }
+        else {
+            alert('Ingresa una imagen jpg, png o jpge');
+        }
+
+        
+
         mostrarLibros();
         
         // Limpiar los campos del formulario
@@ -66,9 +82,10 @@ function agregarLibro() {
     } else {
         alert('Por favor, complete todos los campos.');
     }
+
 }
 
-function mostrarLibros() {
+function mostrarLibros() {//aca?
     const listaLibros = d.getElementById('listaLibros');
     listaLibros.innerHTML = '';
 
